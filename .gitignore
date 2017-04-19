@@ -1,4 +1,4 @@
-./node_modules
+node_modules
 
 # ignore file with tokens and other private data
-./config/secrets.js
+config/secrets.js
