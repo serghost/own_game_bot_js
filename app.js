@@ -1,16 +1,8 @@
 TOKEN = require('./config/secrets.js');
-//var token = import TOKEN from './config/secrets.js';
+
 var TelegramBot = require('node-telegram-bot-api');
-// console.log(TOKEN);
-// var bot = new TelegramBot(token, {polling: true});
 
-// bot.on('message', function (msg) {
-//     var chatId = msg.chat.id;
-//     console.log(msg);
-//     bot.sendMessage(chatId, "Hello!", {caption: "I'm a bot!"});
-// });
 
-console.log(TOKEN);
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TOKEN, {polling: true});
 
@@ -26,12 +18,3 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
     // send back the matched "whatever" to the chat
     bot.sendMessage(chatId, resp);
 });
-
-// // Listen for any kind of message. There are different kinds of
-// // messages.
-// bot.on('message', (msg) => {
-//     const chatId = msg.chat.id;
-
-//     // send a message to the chat acknowledging receipt of their message
-//     bot.sendMessage(chatId, 'Received your message');
-// });
