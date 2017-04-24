@@ -2,6 +2,3 @@ node_modules
 
 # ignore file with tokens and other private data
 config/secrets.js
-
-
-config/secrets2.js
