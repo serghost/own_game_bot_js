@@ -63,12 +63,13 @@ co(function*() {
         
         const qMatches = match[1].match(/(.+); (.+) за (\d+)/);
         console.log(qMatches);
-        if (qMatches) {
+        if (qMatches && COLLECTION) {
             COLLECTION.insertOne({question: qMatches[1], topic: qMatches[2], value: qMatches[3]})  
             bot.sendMessage(message.chat.id, "Ok");
-            console.log(COLLECTION);
+            //bot.sendMessage(message.chat.id, COLLECTION.find());
+            console.log(COLLECTION.find());
         } else {
-            bot.sendMessage(message.chat.id, "Чтобы задать вопрос, необходимо ввести команду /question <вопрос>; <тема> за <цена> \nНапример: \n /question Кто написал 'Войну и Мир'?; Писатели за 300");
+            bot.sendMessage(message.chat.id, "Начать игру - /start\nЧтобы задать вопрос, необходимо ввести команду /question <вопрос>; <тема> за <цена> \nНапример: \n /q Кто написал 'Войну и Мир'?; Писатели за 300");
         }
     });
 
